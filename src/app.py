@@ -12,7 +12,7 @@ from dash import Dash,dcc,html
 # from collections import deque
 import pandas as pd
 import pyodbc
-server = app.server
+
 sql_conn=pyodbc.connect('Driver={SQL Server};'
                     'Server=SZHVSQL16.apac.bosch.com,1433;'
                     'Database=DB_CCU_Analysis_Projects_Data_SQL;'
@@ -29,6 +29,7 @@ print(data)
 
 
 app = Dash(__name__)
+server = app.server
 app.layout = html.Div(
 
     children=[
