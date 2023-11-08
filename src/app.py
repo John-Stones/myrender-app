@@ -13,19 +13,19 @@ from dash import Dash,dcc,html
 import pandas as pd
 import pyodbc
 
-sql_conn=pyodbc.connect('Driver={SQL Server};'
-                    'Server=SZHVSQL16.apac.bosch.com,1433;'
-                    'Database=DB_CCU_Analysis_Projects_Data_SQL;'
-                    'Trusted_connection=yes;'
-        )
+# sql_conn=pyodbc.connect('Driver={SQL Server};'
+#                     'Server=SZHVSQL16.apac.bosch.com,1433;'
+#                     'Database=DB_CCU_Analysis_Projects_Data_SQL;'
+#                     'Trusted_connection=yes;'
+#         )
 
-cursor=sql_conn.cursor()
-sql="""
-select top (1000) * from self_humidity
-"""
-data=pd.read_sql_query(sql, sql_conn)
+# cursor=sql_conn.cursor()
+# sql="""
+# select top (1000) * from self_humidity
+# """
+# data=pd.read_sql_query(sql, sql_conn)
 
-print(data)
+# print(data)
 
 
 app = Dash(__name__)
@@ -56,9 +56,9 @@ app.layout = html.Div(
 
                     {
 
-                        "x": data["index"],
+                        "x": [1,2,3,4],
 
-                        "y": data["current"],#rate
+                        "y": [1,2,3,4],#rate
 
                         "type": "ss",
 
@@ -80,9 +80,9 @@ app.layout = html.Div(
 
                     {
 
-                        "x": data["index"],
+                        "x": [1,2,3,4],
 
-                        "y": data["voltage"],#PAndeDs_p_f_max
+                        "y": [1,2,3,4],#PAndeDs_p_f_max
 
                         "type": "ss",
 
@@ -107,8 +107,8 @@ if __name__ == "__main__":
     #     app.server,
     #     port=8888
     #     )
-    app.run_server(debug=True,
-                    )#host='0.0.0.0'
+    app.run_server(debug=True
+                    )#host='0.0.0.0' ,port=8050
     
     
     
